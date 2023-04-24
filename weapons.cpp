@@ -14,36 +14,7 @@ string weaponTypeF(materials weaponQuality) {
     };
     return MaterialToStringMap[weaponQuality];
 }
-/*
-string weaponTypeF(materials weaponQuality) {
-    string weaponQualityType;
-    switch (weaponQuality) {
-        case Wood:
-            weaponQualityType = "Wooden";
-            break;
-        case Oak:
-            weaponQualityType = "Oak";
-            break;
-        case Copper:
-            weaponQualityType = "Copper";
-            break;
-        case Bronze:
-            weaponQualityType = "Bronze";
-            break;
-        case Iron:
-            weaponQualityType = "Iron";
-            break;
-        case Steel:
-            weaponQualityType = "Steel";
-            break;
-        case Mithril:
-            weaponQualityType = "Mithril";
-            break;
 
-    }
-    return weaponQualityType;
-}
-*/
 string weaponChoiceF(int weaponChoice){
     string weaponType;
 

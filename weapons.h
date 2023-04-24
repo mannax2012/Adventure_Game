@@ -6,9 +6,8 @@
 #define ADVENTURE_GAME_WEAPONS_H
 #include <iostream>
 #include <cmath>
-#include "main.h"
+#include "includes.h"
 using namespace std;
-//void weaponTypeF(string weaponQualityType, materials weaponQuality, weapons weaponChoice);
 extern materials weaponQuality;
 extern weapons weaponChoice;
 
