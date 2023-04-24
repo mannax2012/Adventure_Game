@@ -9,8 +9,10 @@ const string pError = "Incorrect entry - Please try again.";
 string weaponType;
 string charClassVal;
 string weaponQualityType;
+int classSelect;
 weapons weaponChoice = weapons::unarmed;
 materials weaponQuality = materials::Wood;
+pClasses characterClass;
 /* Function Declaration */
 
 int exit(){
@@ -39,7 +41,7 @@ int main() {
         break;
         default:
             cout << pError << endl;
-            main();
+           return main();
 
     }
 }
@@ -47,7 +49,8 @@ int main() {
 void nextScreen01(character createChar){
     int choosePath;
     cout << "You start your journey deep in the woods and see two paths ahead of you.\n Which path do you choose? " << endl;
-    cout << "1. Left\n2. Right" << endl;
+    cout << "1. Left\n"
+            "2. Right" << endl;
     cout << "Choose: ";
     cin >> choosePath;\
     if ((cin.fail())) {
@@ -89,7 +92,7 @@ void startGame() {
     cout << "Please input character name: ";
     cin >> characterName;
 
-    srand(time(NULL));
+   //srand(time(NULL));
     character player = characterCreation(characterName);
     cout << "Your Character " << characterName << " heads out on their first adventure!" << endl;
     pMainScreen(characterName);
@@ -103,22 +106,23 @@ character characterCreation(string characterName) {
         case 1:
             weaponChoice = weapons::sword;
             weaponQuality = materials::Wood;
+            characterClass = pClasses::Warrior;
             charClass.bonusHealth = 100;
             charClass.bonusStr = 10;
             charClass.bonusMana = 10;
             charClass.bonusInt = 1;
-            charClassVal = charClassSelect(characterClass);
             break;
         case 2:
             weaponChoice = weapons::staff;
             weaponQuality = materials::Wood;
+            characterClass = pClasses::Mage;
             charClass.bonusMana = 100;
             charClass.bonusInt = 10;
             charClass.bonusHealth = 10;
             charClass.bonusStr = 1;
-            charClassVal = charClassSelect(characterClass);
             break;
     }
+    charClassVal = charClassSelect(characterClass);
     weaponQualityType = weaponTypeF(weaponQuality);
     createChar.name = characterName;
     createChar.expChar += createChar.expChar + cExpGainTotal;
@@ -141,7 +145,6 @@ void printInfo(character createChar) {
 
     charClass.bonusMana = createChar.intellect;
     charClass.bonusSpell = (rand() % (maxVal - minVal + 1)) + minVal;
-    //createChar.weaponAttack = ((2 * createChar.strength) + charClass.bonusStr) + static_cast<int>(weaponQuality);
 
     cout << "Character Name: " << createChar.name << endl;
     cout << "Class: " << charClassVal << endl;
@@ -177,13 +180,13 @@ int pMainScreen(string characterName){
     }
     switch (classSelect) {
         case 1:
-            cout << "You selected" << charClassSelect(characterClass) << " \n";
+            cout << "You selected " << charClassSelect(characterClass) << " \n";
             printInfo(player);
             nextScreen01(createChar);
             break;
 
         case 2:
-            cout << "You selected Mage! \n";
+            cout << "You selected " << charClassSelect(characterClass) << " \n";
             printInfo(player);
             nextScreen01(createChar);
             break;

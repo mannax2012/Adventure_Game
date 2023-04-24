@@ -49,5 +49,5 @@ void nextScreen02();
 void nextScreen03();
 string weaponTypeF(materials weaponQuality);
 string weaponChoiceF(int weaponChoice);
-extern int classSelect;
+//extern int classSelect;
 #endif //ADVENTURE_GAME_MAIN_H
